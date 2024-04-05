@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1>Lista posts</h1>
+        <h1 class="my-4">Lista posts</h1>
 
-        <table>
+        <table class="table mb-4">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -27,6 +27,7 @@
                 </tr>
             </tbody>
         </table>
+        {{ $posts->links('pagination::bootstrap-5' )}}
 
         @dump($posts)
     </div>

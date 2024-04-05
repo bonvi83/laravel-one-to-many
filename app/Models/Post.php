@@ -19,8 +19,8 @@ class Post extends Model
     }
 
 
-    // public function getAbstract($n_chars = 30)
-    // {
-    //     return (strlen($this->content) > $n_chars) ? substr($this->content, 0, $n_chars) . '...' : ;
-    // }
+    public function getAbstract($n_chars = 30)
+    {
+        return (strlen($this->content) > $n_chars) ? substr($this->content, 0, $n_chars) . '...' : $this->content;
+    }
 }
