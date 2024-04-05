@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+// aggiungo il vincolo perchè le due tabelle esistevano già. Così evito errori. FORSE
+
 return new class extends Migration
 {
     /**
@@ -13,11 +16,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('lable', 30);
-            $table->char('color', 7);
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreignId('category_id')->after('id')->constrained();
         });
     }
 
@@ -28,6 +28,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('post_user_id_foreign');
+            $table->dropColumn('category_id');
+        });
     }
 };

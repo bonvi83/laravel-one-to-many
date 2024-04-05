@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
+            $table->foreignId('category_id')->constrained();
+            $table->string('title', 150);
             $table->text('slug');
             $table->text('content');
             $table->timestamps();
+            $table->softDelets();
         });
     }
 
