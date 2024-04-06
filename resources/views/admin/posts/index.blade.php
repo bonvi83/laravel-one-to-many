@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="my-4">Lista posts</h1>
+        <button class="btn btn-primary my-4" href="{{route('')}}">
+            Crea nuovo post
+        </button>
 
+        <h1 class="my-4">Lista posts</h1>
         <table class="table mb-4">
             <thead>
                 <tr>
@@ -31,4 +34,8 @@
 
         @dump($posts)
     </div>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
