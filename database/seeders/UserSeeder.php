@@ -3,12 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
-// per hashare la password
 use Illuminate\Support\Facades\Hash;
-
 
 class UserSeeder extends Seeder
 {
@@ -17,15 +15,12 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-
-    //  creo uno user in modo da non dover tutte le volte fare una registrazione da zero
     public function run()
     {
         $user = new User;
-        $user->name = 'bonvi';
+        $user->name = 'Utente';
         $user->email = 'prova@gmail.com';
         $user->password = Hash::make('password');
         $user->save();
-
     }
 }
