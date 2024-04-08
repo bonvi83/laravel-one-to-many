@@ -2,35 +2,37 @@
 
 namespace Database\Seeders;
 
-use App\Models\Project;
-use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
+use App\Models\Project;
+// use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run(Faker $faker)
-    {
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	// public function run(Faker $faker)
+	public function run()
+	{
+		// for ($i = 0; $i < 10; $i++) {
+		$project = new Project;
+		$project->title = 'Vite Boolando';
+		// $project->type->label = 'Frontend';
+		$project->content = 'Create un nuovo progetto utilizzando Vite e Vue 3 e definite i componenti necessari per strutturare il layout.';
+		$project->link = 'https://github.com/lucapolzone/vite-boolando';
+		$project->save();
 
-        $types_id = Type::all()->pluck('id');
+		$project = new Project;
+		$project->title = 'Vue Email List';
+		// $project->type->label = 'Frontend';
+		$project->content = "Attraverso l'apposita API di Boolean generare 10 indirizzi email e stamparli in pagina all'interno di una lista.";
+		$project->link = 'https://github.com/lucapolzone/vue-email-list';
+		$project->save();
 
-
-
-        for ($i = 0; $i < 20; $i++) {
-
-            $project = new Project;
-            $project->type_id = $faker->randomElement($types_id);
-            $project->title = $faker->catchPhrase();
-            $project->content = $faker->paragraphs(2, true);
-            $project->slug = Str::slug($project->title);
-            $project->save();
-        }
-    }
+		// }
+	}
 }

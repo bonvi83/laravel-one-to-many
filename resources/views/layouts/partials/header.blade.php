@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#">I miei progetti</a>
+            <a class="navbar-brand" href="#">Laravel project</a>
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
@@ -11,8 +11,7 @@
                     <li class="nav-item">
                         <a @class(['nav-link', 'active' => Route::currentRouteName() == 'home']) aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -23,9 +22,6 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.project.index') }}">Projects</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button" v-pre>
@@ -44,9 +40,20 @@
                                 </form>
                             </div>
                         </li>
-
-                    @endguest
-                </ul>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.projects.index') }}" class="nav-link">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.types.index') }}" class="nav-link">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.projects.create') }}" class="nav-link">Inserisci progetto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.types.create') }}" class="nav-link">Inserisci categoria</a>
+                        </li>
+                    </ul>
+                @endguest
             </div>
         </div>
     </nav>
